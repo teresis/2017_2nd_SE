@@ -1,0 +1,64 @@
+
+<project basedir="." default="main">
+
+	<!-- ==================================================================== properties ==================================================================== -->
+
+
+	<property value="hw0" name="name" />
+
+	<property value="src" name="src.dir" />
+
+	<property value="." name="build.dir" />
+
+	<property value="classes" name="classes.dir" />
+
+	<property value="${build.dir}/${name}.jar" name="jar.file" />
+
+	<property value="dist" name="dist.dir" />
+
+	<property value="${dist.dir}/${name}-${version}" name="dist.file" />
+
+	<!-- ==================================================================== compile : compile java files ==================================================================== -->
+
+
+
+	<target name="compile">
+
+		<mkdir dir="${classes.dir}" />
+
+		<javac destdir="${classes.dir}" srcdir="${src.dir}"/>
+
+	</target>
+
+	<!-- ==================================================================== jars : jar class files ==================================================================== -->
+
+	<target name="jars" depends="compile">
+
+		<jar basedir="${classes.dir}" jarfile="${jar.file}">
+			<manifest>
+				<attribute name="main-Class" value="cse4006.main" />
+			</manifest>
+		</jar>
+
+	</target>
+
+	<!-- ============================================================================================================================================================ -->
+	
+	<target name="main" depends="jars" />
+
+	<!-- ============================================================================== clean : delete jar file & class files ============================================================================== -->
+
+	<target name="clean">
+
+		<delete file="${jar.file}" />
+
+		<delete dir="${classes.dir}" />
+
+	</target>
+
+	<!-- ============================================================================== all target excuted ============================================================================== -->
+
+
+	<target name="all" depends="clean" />
+
+</project>
