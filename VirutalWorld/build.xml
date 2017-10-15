@@ -4,7 +4,7 @@
 	<!-- ==================================================================== properties ==================================================================== -->
 
 
-	<property value="hw0" name="name" />
+	<property value="vw" name="name" />
 
 	<property value="src" name="src.dir" />
 
@@ -27,6 +27,13 @@
 		<mkdir dir="${classes.dir}" />
 
 		<javac destdir="${classes.dir}" srcdir="${src.dir}"/>
+		<copy todir="${classes.dir}/faceduck/skeleton/world/icons">
+
+		<fileset dir="icons"/>
+
+		</copy>
+
+
 
 	</target>
 
@@ -36,7 +43,7 @@
 
 		<jar basedir="${classes.dir}" jarfile="${jar.file}">
 			<manifest>
-				<attribute name="main-Class" value="cse4006.main" />
+				<attribute name="main-Class" value="faceduck.skeleton.world.WorldUI" />
 			</manifest>
 		</jar>
 

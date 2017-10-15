@@ -42,6 +42,7 @@ public class main {
 		System.out.println(G.getDistance("John", "Jane"));
 		System.out.println(G.getDistance("John", "John"));
 		System.out.println(G.getDistance("John", "Marry"));
+		System.out.println(G.getClass().getName());
 
 	}
 
